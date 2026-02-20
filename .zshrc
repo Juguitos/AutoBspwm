@@ -211,3 +211,4 @@ export FZF_DEFAULT_COMMAND="fdfind --type f --hidden --follow --exclude .git 2>/
 # ─── Powerlevel10k ────────────────────────────────────────────────────────────
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+
