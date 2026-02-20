@@ -5,7 +5,7 @@
 # ─── Apps ────────────────────────────────────────────────────────────────────
 super + Return
     /usr/bin/kitty
-super + d
+super + space
     rofi -show drun -theme ~/.config/rofi/launcher.rasi
 super + e
     thunar
