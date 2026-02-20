@@ -1,0 +1,53 @@
+/* ─── RX7 Theme · Rofi ───────────────────────────────────────────────────── */
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    font: "JetBrainsMono Nerd Font 11";
+    display-drun: " Apps";
+    display-run:  " Run";
+    display-window: " Windows";
+}
+
+* {
+    bg:     #0D0D0D;
+    bg2:    #1a1a2e;
+    fg:     #c0caf5;
+    fg-dim: #545c7e;
+    accent: #63CC00;
+    teal:   #00CC69;
+    pink:   #CC0063;
+    background-color: transparent;
+    text-color: @fg;
+    border: 0; margin: 0; padding: 0; spacing: 0;
+}
+
+window {
+    background-color: @bg;
+    border: 2px; border-color: @accent;
+    border-radius: 8px; width: 480px;
+}
+
+mainbox { background-color: transparent; children: [inputbar, listview]; }
+
+inputbar {
+    background-color: @bg2;
+    border-radius: 6px 6px 0 0;
+    padding: 10px 14px; spacing: 8px;
+    children: [prompt, entry];
+}
+
+prompt { background-color: transparent; text-color: @accent; }
+entry  { background-color: transparent; text-color: @fg; placeholder: "buscar..."; placeholder-color: @fg-dim; }
+
+listview {
+    background-color: transparent;
+    padding: 6px; spacing: 2px;
+    scrollbar: false; lines: 8;
+}
+
+element { background-color: transparent; border-radius: 4px; padding: 7px 10px; spacing: 10px; children: [element-icon, element-text]; }
+element selected.normal { background-color: @accent; text-color: @bg; }
+element normal.urgent, element alternate.urgent { text-color: @pink; }
+element-icon { background-color: transparent; size: 20px; }
+element-text { background-color: transparent; text-color: inherit; highlight: bold @teal; }

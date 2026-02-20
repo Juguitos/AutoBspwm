@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# ─── BSPWM Smart Resize · RX7 ────────────────────────────────────────────────
+STEP=20
+direction="$1"
+
+case "$direction" in
+    west)
+        bspc node -z left  -$STEP 0 2>/dev/null || bspc node -z right  $STEP 0 ;;
+    east)
+        bspc node -z right  $STEP 0 2>/dev/null || bspc node -z left  -$STEP 0 ;;
+    north)
+        bspc node -z top    0 -$STEP 2>/dev/null || bspc node -z bottom 0  $STEP ;;
+    south)
+        bspc node -z bottom 0  $STEP 2>/dev/null || bspc node -z top    0 -$STEP ;;
+    *)
+        echo "Uso: bspwm_resize {west|east|north|south}"; exit 1 ;;
+esac

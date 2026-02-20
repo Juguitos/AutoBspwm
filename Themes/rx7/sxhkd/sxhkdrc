@@ -1,0 +1,122 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║             RX7 Theme · SXHKD Keybindings                   ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+# ─── Apps ────────────────────────────────────────────────────────────────────
+super + Return
+    /usr/bin/kitty
+super + d
+    rofi -show drun -theme ~/.config/rofi/launcher.rasi
+super + e
+    thunar
+super + shift + f
+    /usr/bin/firefox
+super + shift + b
+    /usr/bin/burpsuite
+ctrl + shift + p
+    /usr/bin/burpsuitepro
+super + b
+    kitty -e btop
+super + shift + n
+    kitty -e nmtui
+
+# ─── Sistema ─────────────────────────────────────────────────────────────────
+super + Escape
+    pkill -USR1 -x sxhkd
+super + alt + {q,r}
+    bspc {quit,wm -r}
+ctrl + alt + l
+    /usr/bin/i3lock-fancy
+
+# ─── Ventanas ────────────────────────────────────────────────────────────────
+super + {_,shift + }w
+    bspc node -{c,k}
+super + m
+    bspc desktop -l next
+super + y
+    bspc node newest.marked.local -n newest.!automatic.local
+super + g
+    bspc node -s biggest.window
+super + {t,shift + t,s,f}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + ctrl + {m,x,y,z}
+    bspc node -g {marked,locked,sticky,private}
+
+# ─── Focus / Swap ────────────────────────────────────────────────────────────
+super + {_,shift + }{Left,Down,Up,Right}
+    bspc node -{f,s} {west,south,north,east}
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+super + {p,b,comma,period}
+    bspc node -f @{parent,brother,first,second}
+super + {_,shift + }c
+    bspc node -f {next,prev}.local.!hidden.window
+super + bracket{left,right}
+    bspc desktop -f {prev,next}.local
+super + {grave,Tab}
+    bspc {node,desktop} -f last
+super + {o,i}
+    bspc wm -h off; \
+    bspc node {older,newer} -f; \
+    bspc wm -h on
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} '^{1-9,10}'
+
+# ─── Preselección ────────────────────────────────────────────────────────────
+super + ctrl + alt + {Left,Down,Up,Right}
+    bspc node -p {west,south,north,east}
+super + ctrl + {1-9}
+    bspc node -o 0.{1-9}
+super + ctrl + alt + space
+    bspc node -p cancel
+super + ctrl + shift + space
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# ─── Resize ──────────────────────────────────────────────────────────────────
+super + ctrl + {Left,Down,Up,Right}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+alt + super + {Left,Down,Up,Right}
+    ~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
+# ─── Volumen ─────────────────────────────────────────────────────────────────
+ctrl + shift + Up
+    pamixer --increase 5
+ctrl + shift + Down
+    pamixer --decrease 5
+ctrl + shift + m
+    pamixer --toggle-mute
+XF86AudioRaiseVolume
+    pamixer --increase 5
+XF86AudioLowerVolume
+    pamixer --decrease 5
+XF86AudioMute
+    pamixer --toggle-mute
+XF86AudioPlay
+    playerctl play-pause
+XF86AudioNext
+    playerctl next
+XF86AudioPrev
+    playerctl previous
+
+# ─── Screenshots ─────────────────────────────────────────────────────────────
+@Print
+    flameshot full
+ctrl + @Print
+    flameshot gui
+
+# ─── Target HTB/THM ──────────────────────────────────────────────────────────
+super + ctrl + t
+    ~/.config/polybar/scripts/target.sh copyip && \
+    notify-send "🎯 Target" "IP copiada: $(awk '{print $1}' ~/.config/polybar/scripts/target 2>/dev/null)" -i network
+super + shift + Delete
+    ~/.config/polybar/scripts/target.sh clear && \
+    notify-send "🎯 Target" "Target limpiado" -i network-offline
+
+# ─── Red ─────────────────────────────────────────────────────────────────────
+super + shift + i
+    ip -4 a show tun0 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -1 | \
+    xclip -selection clipboard && \
+    notify-send "🔒 VPN" "$(xclip -o -selection clipboard) copiada" -i network-vpn
+super + i
+    hostname -I | awk '{print $1}' | xclip -selection clipboard && \
+    notify-send "🌐 IP Local" "$(xclip -o -selection clipboard) copiada" -i network
