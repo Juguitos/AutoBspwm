@@ -7,6 +7,8 @@ super + Return
     /usr/bin/kitty
 super + space
     rofi -show drun -theme ~/.config/rofi/launcher.rasi
+super + d
+    rofi -show drun -theme ~/.config/rofi/launcher.rasi
 super + e
     thunar
 super + shift + f
