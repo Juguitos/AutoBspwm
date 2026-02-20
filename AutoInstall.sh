@@ -313,7 +313,7 @@ install_zsh() {
         "$ZSH_CUSTOM/themes/powerlevel10k" 2>/dev/null && ok "Powerlevel10k" || \
         warn "Powerlevel10k ya existe"
 
-    cp "$REPO_DIR/.zshrc" "$HOME/.zshrc"
+    cp "$REPO_DIR/zshrc" "$HOME/.zshrc"
     ok ".zshrc copiado"
 
     [[ "$SHELL" != "$(command -v zsh)" ]] && \
