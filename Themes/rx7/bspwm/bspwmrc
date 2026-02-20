@@ -39,5 +39,4 @@ pkill -x picom 2>/dev/null; sleep 0.1
 picom --config ~/.config/picom/picom.conf -b &
 dunst &
 ~/.config/polybar/launch.sh &
-# Portapapeles VMware
-pgrep -f vmware-user > /dev/null || vmware-user-suid-wrapper > /dev/null 2>&1 &
+pgrep -f vmware-user > /dev/null 2>&1 || { vmware-user-suid-wrapper > /tmp/vmware.log 2>&1 & disown; }
