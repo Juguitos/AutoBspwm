@@ -66,7 +66,7 @@ AutoBspwm/
 | Atajo | Acción |
 |-------|--------|
 | `Super + Enter` | Terminal (Kitty) |
-| `Super + D` | Launcher (Rofi) |
+| `Super + D` , `Super + Space`| Launcher (Rofi) |
 | `Super + E` | Archivos (Thunar) |
 | `Super + Shift+F` | Firefox |
 | `Super + Shift+B` | Burpsuite |
