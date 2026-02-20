@@ -39,3 +39,4 @@ pkill -x picom 2>/dev/null; sleep 0.1
 picom --config ~/.config/picom/picom.conf -b &
 dunst &
 ~/.config/polybar/launch.sh &
+
