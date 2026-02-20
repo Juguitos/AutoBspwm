@@ -6,7 +6,7 @@ Script de instalación automática de BSPWM para **Kali Linux** con el tema **RX
 
 ## Preview
 
-![rx7](Wallpaper/rx7.jpg)
+![rx7](preview.png)
 
 ## Instalación
 
