@@ -177,7 +177,9 @@ deploy_configs() {
     cp "$T/polybar/launch.sh"          "$CONFIG/polybar/launch.sh"
     cp "$T/polybar/scripts/vpn.sh"     "$CONFIG/polybar/scripts/vpn.sh"
     cp "$T/polybar/scripts/target.sh"  "$CONFIG/polybar/scripts/target.sh"
+    cp "$T/polybar/scripts/powermenu.sh" "$CONFIG/polybar/scripts/powermenu.sh"
     cp "$T/rofi/launcher.rasi"         "$CONFIG/rofi/launcher.rasi"
+    cp "$T/rofi/powermenu.rasi"        "$CONFIG/rofi/powermenu.rasi"
     cp "$T/picom/picom.conf"           "$CONFIG/picom/picom.conf"
     cp "$T/dunst/dunstrc"              "$CONFIG/dunst/dunstrc"
 
@@ -189,6 +191,7 @@ deploy_configs() {
     chmod +x "$CONFIG/polybar/launch.sh"
     chmod +x "$CONFIG/polybar/scripts/vpn.sh"
     chmod +x "$CONFIG/polybar/scripts/target.sh"
+    chmod +x "$CONFIG/polybar/scripts/powermenu.sh"
     touch "$CONFIG/polybar/scripts/target"
 
     # Fastfetch config
@@ -367,7 +370,7 @@ main() {
     install_fonts
     deploy_configs
     fix_polybar
-    fix_clipboard     # ← nuevo
+    fix_clipboard
     register_bspwm
     install_nvim
     install_zsh
