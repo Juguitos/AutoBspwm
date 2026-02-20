@@ -1,14 +1,4 @@
-#!/usr/bin/env bash
-# ╔══════════════════════════════════════════════════════════════════════════════╗
-# ║                    AutoBspwm · @Juguitos                                    ║
-# ║              BSPWM Auto-Installer for Kali Linux                            ║
-# ╚══════════════════════════════════════════════════════════════════════════════╝
-# NO ejecutar como root.
-# Uso: git clone https://github.com/Juguitos/AutoBspwm && cd AutoBspwm && bash AutoInstall.sh
-
-# ─── SIN set -e para que oh-my-zsh no interrumpa el script ───────────────────
-
-RED='\033[0;31m'; GRN='\033[0;32m'; CYN='\033[0;36m'
+#!/usr/ GRN='\033[0;32m'; CYN='\033[0;36m'
 PRP='\033[0;35m'; YLW='\033[0;33m'; NC='\033[0m'
 
 ok()   { echo -e "${GRN}[+]${NC} $*"; }
@@ -285,3 +275,5 @@ main() {
 }
 
 main "$@"
+
+
