@@ -101,3 +101,4 @@ shell_upgrade     # Instrucciones TTY upgrade
 ---
 
 **@Juguitos** · Kali Linux · HTB
+
